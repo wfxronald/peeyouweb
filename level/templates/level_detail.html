@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<html>
+<head>
+    <title>Level {{ level }}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'index' %}">peeyouweb</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item {% if request.resolver_match.url_name == 'index' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item dropdown {% if request.resolver_match.url_name == 'level_detail' %}active{% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Level
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'level_detail' 20 %}">20</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 21 %}">21</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 22 %}">22</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 23 %}">23</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 24 %}">24</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 25 %}">25</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 26 %}">26</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 27 %}">27</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 28 %}">28</a>
+            </div>
+          </li>
+        </ul> 
+      </div>
+    </nav>
+
+    <div class="container text-center mt-3">
+        <h1 class="display-3">Clear rate for level {{ level }}</h1>
+        
+        
+        <div>
+            <table class="table text-center table-borderless table-sm">
+                <tr class="table-secondary">
+                    <th class="w-25">Titlecard</th>
+                    <th class="w-50">Song Title</th>
+                    <th class="w-25">Average Clear Order</th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <em class="text-danger">Further up the list, people are more likely to clear the song later</em>
+                    </td>
+                </tr>
+                {% for tup in tuple_of_songs %}
+                    {% if forloop.first %} <tr class="table-danger"> 
+                    {% elif forloop.last %} <tr class="table-success">
+                    {% else %} <tr class="table-warning">
+                    {% endif %}
+                        <td class="w-25"><img src="https://pumpout2.anyhowstep.com{{ tup.2 }}" width="125" height="94"></td>
+                        <td class="align-middle w-50">{{ tup.0 }}</td>
+                        <td class="align-middle w-25">{{ tup.1 }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="3">
+                        <em class="text-success">Further down the list, people are more likely to clear the song earlier</em>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

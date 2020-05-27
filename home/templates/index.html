@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<html>
+<head>
+	<title>Home</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'index' %}">peeyouweb</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item {% if request.resolver_match.url_name == 'index' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item dropdown {% if request.resolver_match.url_name == 'level_detail' %}active{% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Level
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'level_detail' 20 %}">20</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 21 %}">21</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 22 %}">22</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 23 %}">23</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 24 %}">24</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 25 %}">25</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 26 %}">26</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 27 %}">27</a>
+              <a class="dropdown-item" href="{% url 'level_detail' 28 %}">28</a>
+            </div>
+          </li>
+        </ul> 
+      </div>
+    </nav>
+
+    <div class="container text-center mt-3">
+        <h1 class="display-3">Welcome Home</h1>
+
+        <div class="row">
+        	<div class="col-sm-3"></div>
+        	<div class="col-sm-6">
+		        <p>
+		        	<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/GAMBREL_ROOF_(PSF).png" width="100%" alt="House">
+		        </p>
+		        <p>
+		        	Similar to the tier list, this website aims to provide some form of guidance
+		        	for users trying to clear songs of level <code>20</code> to <code>28</code> 
+		        	for the <kbd>Advanced</kbd>, <kbd>Expert</kbd>, and <kbd>The Master</kbd> titles.
+		        </p>
+		        <p>
+		        	It is assumed that if one clears the song earlier then it is relatively
+		        	easy, and vice versa. Thus, <strong>average clear order</strong> of all the player's 
+		        	clears in the database can shed light on the <strong>relative difficulty</strong> of the song
+		        </p>
+		        <p>
+		        	Of course, admittedly this system is not perfect. Some of the songs are cleared
+		        	later simply because they come in the later updates. Hence, do take this list
+		        	with a pinch of salt.
+		        </p>
+	    	</div>
+	    	<div class="col-sm-3"></div>
+    	</div>
+    </div>
+</body>
+</html>
+{% endblock %}
