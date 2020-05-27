@@ -7,7 +7,7 @@ As the telegram bot, <a href="https://github.com/wfxronald/peeyoubot">peeyoubot<
 This idea of tracking the clear order is inspired by the idea of Clear Rate in another rhythm game, Beatmania IIDX. As a result, we can collectively generate a tier-list of the level given enough data sample.
 
 <img src="tierlistsample.png" alt="Sample Tier List" width="50%">
-*A sample tier-list, credits to DCInside: A Korean Pump It Up Community Forum*
+<em>A sample tier-list, credits to DCInside: A Korean Pump It Up Community Forum</em><br/>
 
 Indeed there has been many tier-list circulating around the Internet, and since it is made by an individual, it might be biased towards certain charts and the resulting tier-list might be subjective. Therefore, peeyouweb tries to tackle this limitation by sourcing for actual player data to support the tier-listing.
 
